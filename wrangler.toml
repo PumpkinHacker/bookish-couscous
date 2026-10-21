@@ -1,0 +1,19 @@
+name = "dream-world-2"
+main = "src/worker.js"
+compatibility_date = "2025-01-01"
+
+[assets]
+directory = "./public"
+run_worker_first = ["/ws", "/api/*"]
+
+[[durable_objects.bindings]]
+name = "REG"
+class_name = "Registry"
+
+[[durable_objects.bindings]]
+name = "ROOMS"
+class_name = "MapRoom"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["Registry", "MapRoom"]
